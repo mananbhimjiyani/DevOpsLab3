@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  angular-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: angular-container
+    ports:
+      - "4200:80" # Corrected: Maps port 4200 on your Mac to port 80 in the container

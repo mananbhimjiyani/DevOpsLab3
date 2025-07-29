@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  angular-app-dev:
+    image: node:20-alpine
+    container_name: angular-dev-container
+    ports:
+      # Map host port 4200 to the container's port 4200
+      - "4200:4200"
+    working_dir: /app
+    volumes:
+      # Mount local source code into the container for hot-reloading
+      - .:/app
+      # Use an anonymous volume to store and isolate node_modules
+      - /app/node_modules
+    # Command to install dependencies (if needed) and start the dev server
+    # The --host 0.0.0.0 makes the server accessible from your Mac
+    # The --poll flag helps Docker detect file changes reliably
+    command: sh -c "npm install && npm start -- --host 0.0.0.0 --poll 1000"
