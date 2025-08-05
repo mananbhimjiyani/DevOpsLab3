@@ -2,7 +2,7 @@
 
 Welcome to the DevOpsLab3 central repository! To keep our codebase clean and organized, **each student must work in their own personal branch** and must **not commit directly to the `main` branch**. This will ensure everyone’s work stays separate and manageable.
 
----
+----
 
 ## 📋 Step-by-Step Instructions
 
