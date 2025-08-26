@@ -15,8 +15,10 @@ pipeline {
       agent { label 'linux1' }
       steps {
         unstash 'src'
-        sh 'mvn -B -DskipTests clean package'
-        stash name: 'built', includes: 'target/**/*, pom.xml'
+        dir('DevOps_lab_exp/Docker_exp4'){
+          sh 'mvn -B -DskipTests clean package'
+        }
+        // stash name: 'built', includes: 'target/**/*, pom.xml'
       }
     }
 
@@ -24,8 +26,10 @@ pipeline {
       agent { label 'linux2' }
       steps {
         unstash 'src'   // bring source (and pom) to agent2
-        sh 'mvn -B test'
-        junit 'target/surefire-reports/*.xml'
+        dir('DevOps_lab_exp/Docker_exp4'){
+          sh 'mvn -B test'
+        }
+        // junit 'target/surefire-reports/*.xml'
       }
     }
   }
