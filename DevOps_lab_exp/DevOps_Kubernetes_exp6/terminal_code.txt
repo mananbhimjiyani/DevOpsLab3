@@ -1,0 +1,91 @@
+CODE
+
+C:\Users\aarya\Desktop\sem 7\DevOps\DevOpsLab3\DevOps_lab_exp\DevOps_Kubernetes_exp6>kubectl version --client
+Client Version: v1.32.2
+Kustomize Version: v5.5.0
+
+C:\Users\aarya\Desktop\sem 7\DevOps\DevOpsLab3\DevOps_lab_exp\DevOps_Kubernetes_exp6>kubectl cluster-info    
+Kubernetes control plane is running at https://kubernetes.docker.internal:6443
+CoreDNS is running at https://kubernetes.docker.internal:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+
+C:\Users\aarya\Desktop\sem 7\DevOps\DevOpsLab3\DevOps_lab_exp\DevOps_Kubernetes_exp6>kubectl get nodes
+NAME             STATUS   ROLES           AGE    VERSION
+docker-desktop   Ready    control-plane   5m7s   v1.32.2
+
+C:\Users\aarya\Desktop\sem 7\DevOps\DevOpsLab3\DevOps_lab_exp\DevOps_Kubernetes_exp6>kubectl create namespace social-media
+namespace/social-media created
+
+C:\Users\aarya\Desktop\sem 7\DevOps\DevOpsLab3\DevOps_lab_exp\DevOps_Kubernetes_exp6>kubectl config set-context --current --namespace=social-media
+Context "docker-desktop" modified.
+
+C:\Users\aarya\Desktop\sem 7\DevOps\DevOpsLab3\DevOps_lab_exp\DevOps_Kubernetes_exp6>kubectl get ns
+NAME              STATUS   AGE
+default           Active   6m33s
+kube-node-lease   Active   6m33s
+kube-public       Active   6m33s
+kube-system       Active   6m33s
+social-media      Active   38s
+
+C:\Users\aarya\Desktop\sem 7\DevOps\DevOpsLab3\DevOps_lab_exp\DevOps_Kubernetes_exp6>kubectl create deployment nginx-deploy --image=nginx --replicas=2
+deployment.apps/nginx-deploy created
+
+NAME                           READY   STATUS    RESTARTS   AGE
+nginx-deploy-c9d9f6c6c-2tp92   1/1     Running   0          20s
+nginx-deploy-c9d9f6c6c-5lpgw   1/1     Running   0          20s
+
+C:\Users\aarya\Desktop\sem 7\DevOps\DevOpsLab3\DevOps_lab_exp\DevOps_Kubernetes_exp6>kubectl expose deployment nginx-deploy --type=NodePort --port=80
+service/nginx-deploy exposed
+
+C:\Users\aarya\Desktop\sem 7\DevOps\DevOpsLab3\DevOps_lab_exp\DevOps_Kubernetes_exp6>kubectl get svc
+NAME           TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+nginx-deploy   NodePort   10.96.231.153   <none>        80:30193/TCP   11s
+
+C:\Users\aarya\Desktop\sem 7\DevOps\DevOpsLab3\DevOps_lab_exp\DevOps_Kubernetes_exp6>kubectl get nodes -o wide
+NAME             STATUS   ROLES           AGE   VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE         KERNEL-VERSION                     CONTAINER-RUNTIME
+docker-desktop   Ready    control-plane   12m   v1.32.2   192.168.65.3   <none>        Docker Desktop   6.6.87.2-microsoft-standard-WSL2   docker://28.3.0
+
+C:\Users\aarya\Desktop\sem 7\DevOps\DevOpsLab3\DevOps_lab_exp\DevOps_Kubernetes_exp6>curl http://192.168.65.3:30193
+curl: (28) Failed to connect to 192.168.65.3 port 30193 after 21034 ms: Could not connect to server
+
+C:\Users\aarya\Desktop\sem 7\DevOps\DevOpsLab3\DevOps_lab_exp\DevOps_Kubernetes_exp6>curl http://localhost:30193   
+<!DOCTYPE html>
+<html>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+
+STEPS:
+1. Enable kubernetes on Docker Desktop
+2. In terminal:
+    1. kubectl get nodes 
+       (Shows the cluster node is ready.)
+
+    2. kubectl get pods
+       (Show that the nginx pod is running.)
+
+    3. kubectl get svc
+       (to get the assigned ports)
+
+    4. curl http://localhost:<NodePort>
+       (output in terminal)
+    
+    5. go to http://localhost:<NodePort>/ in browser
