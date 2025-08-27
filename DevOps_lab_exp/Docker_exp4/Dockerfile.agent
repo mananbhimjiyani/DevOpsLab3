@@ -1,0 +1,15 @@
+# Dockerfile.agent
+# Base inbound agent image that includes the Jenkins agent runtime and Java
+FROM jenkins/inbound-agent:latest-jdk17
+
+# Switch to root to install packages
+USER root
+
+# Install maven non-interactively and clean apt caches to reduce image size
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends maven \
+ && rm -rf /var/lib/apt/lists/*
+
+# Back to jenkins user (recommended in inbound-agent)
+USER jenkins
