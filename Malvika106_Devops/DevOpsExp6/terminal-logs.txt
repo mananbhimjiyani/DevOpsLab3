@@ -1,0 +1,312 @@
+malvikabhadoriya@Malvikas-MacBook-Air ~ % minikube start --addons=metrics-server
+😄  minikube v1.36.0 on Darwin 15.6.1 (arm64)
+✨  Using the docker driver based on existing profile
+👍  Starting "minikube" primary control-plane node in "minikube" cluster
+🚜  Pulling base image v0.0.47 ...
+🏃  Updating the running docker "minikube" container ...
+🐳  Preparing Kubernetes v1.33.1 on Docker 28.1.1 ...
+🔎  Verifying Kubernetes components...
+    ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
+    ▪ Using image registry.k8s.io/metrics-server/metrics-server:v0.7.2
+🌟  Enabled addons: storage-provisioner, metrics-server, default-storageclass
+🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get nodes
+
+NAME       STATUS   ROLES           AGE   VERSION
+minikube   Ready    control-plane   19m   v1.33.1
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get pods
+NAME                          READY   STATUS              RESTARTS   AGE
+php-apache-6487c65df8-hqtp5   0/1     ContainerCreating   0          25s
+php-apache-6487c65df8-pbxxs   0/1     ContainerCreating   0          25s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl autoscale deployment php-apache --cpu-percent=50 --min=2 --max=10
+Flag --cpu-percent has been deprecated, Use --cpu with percentage or resource quantity format (e.g., '70%' for utilization or '500m' for milliCPU).
+horizontalpodautoscaler.autoscaling/php-apache autoscaled
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl autoscale deployment php-apache --cpu=50% --min=2 --max=10
+Error from server (AlreadyExists): horizontalpodautoscalers.autoscaling "php-apache" already exists
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        2          50s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl edit hpa php-apache
+Edit cancelled, no changes made.
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl delete hpa php-apache
+horizontalpodautoscaler.autoscaling "php-apache" deleted from default namespace
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl autoscale deployment php-apache --cpu=50% --min=2 --max=10
+horizontalpodautoscaler.autoscaling/php-apache autoscaled
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        2          26s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 14%/50%   2         10        2          2m17s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 14%/50%   2         10        2          2m23s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 14%/50%   2         10        2          2m41s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpakubectl get hpa
+
+error: the server doesn't have a resource type "hpakubectl"
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpakubectl get hpa
+
+error: the server doesn't have a resource type "hpakubectl"
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa               
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 14%/50%   2         10        2          3m13s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 146%/50%   2         10        4          3m30s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 146%/50%   2         10        4          3m39s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 146%/50%   2         10        6          4m5s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 69%/50%   2         10        6          4m35s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 69%/50%   2         10        6          4m40s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 69%/50%   2         10        6          4m56s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          5m17s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          5m31s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          5m44s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          5m51s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          6m13s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          6m15s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          6m17s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          6m31s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          6m44s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          7m1s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          7m3s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          7m13s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          7m15s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          7m26s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          7m31s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          7m36s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          7m45s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          7m59s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          8m28s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          8m48s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          8m57s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          9m3s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          9m4s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          9m5s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          9m6s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          9m7s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          9m8s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          9m8s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          9m10s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          9m11s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          9m13s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 53%/50%   2         10        6          9m15s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          9m17s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          9m21s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          9m23s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          9m26s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          9m42s
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % 
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        6          10m
+malvikabhadoriya@Malvikas-MacBook-Air ~ % kubectl get hpa
+NAME         REFERENCE               TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache   cpu: 0%/50%   2         10        2          18m
