@@ -1,0 +1,37 @@
+---
+# This defines the Deployment, which manages the running instances (Pods) of your app.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernets-app-deployment
+spec:
+  replicas: 2 # Tell Kubernetes to run 2 copies (Pods) of your application.
+  selector:
+    matchLabels:
+      app: kubernets-app
+  template:
+    metadata:
+      labels:
+        app: kubernets-app
+    spec:
+      containers:
+        - name: kubernets-app-container
+          # Your Docker Hub username is now correctly set here.
+          image: manraj110/kubernets-app:latest
+          ports:
+            - containerPort: 8080
+---
+# This defines the Service, which exposes your application to be accessed.
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubernets-app-service
+spec:
+  # 'LoadBalancer' makes the service accessible from your Mac's localhost.
+  type: LoadBalancer
+  selector:
+    app: kubernets-app
+  ports:
+    - protocol: TCP
+      port: 8080 # The port you will access the service on.
+      targetPort: 8080 # The port inside the container to send traffic to.
