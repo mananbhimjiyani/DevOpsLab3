@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.6.4
+Build-Jdk-Spec: 17
+Specification-Title: Bootstrap 5 API Plugin
+Specification-Version: 5.3
+Implementation-Title: Bootstrap 5 API Plugin
+Implementation-Version: 5.3.7-860.v1251c115c90c
+Group-Id: io.jenkins.plugins
+Artifact-Id: bootstrap5-api
+Short-Name: bootstrap5-api
+Long-Name: Bootstrap 5 API Plugin
+Url: https://github.com/jenkinsci/bootstrap5-api-plugin
+Plugin-Version: 5.3.7-860.v1251c115c90c
+Hudson-Version: 2.496
+Jenkins-Version: 2.496
+Plugin-Dependencies: commons-lang3-api:3.18.0-98.v3a_674c06072d,commons-
+ text-api:1.13.1-176.v74d88f22034b_,font-awesome-api:6.7.2-1
+Plugin-Developers: Ullrich Hafner:uhafner:ullrich.hafner@gmail.com
+Support-Dynamic-Loading: true
+Plugin-License-Name: MIT license
+Plugin-ScmConnection: scm:git:https://github.com/jenkinsci/bootstrap5-ap
+ i-plugin.git
+Plugin-ScmTag: 1251c115c90cf816fb0998ba7d46a25d6fbb768c
+Plugin-ScmUrl: https://github.com/jenkinsci/bootstrap5-api-plugin
+Implementation-Build: 1251c115c90cf816fb0998ba7d46a25d6fbb768c
+

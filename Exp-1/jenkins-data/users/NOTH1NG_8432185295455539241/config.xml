@@ -1,0 +1,57 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<user>
+  <version>10</version>
+  <id>NOTH1NG</id>
+  <fullName>NOTH1NG CRUXAL</fullName>
+  <properties>
+    <io.jenkins.plugins.thememanager.ThemeUserProperty plugin="theme-manager@319.v9193461f9671"/>
+    <jenkins.console.ConsoleUrlProviderUserProperty/>
+    <com.cloudbees.plugins.credentials.UserCredentialsProvider_-UserCredentialsProperty plugin="credentials@1419.v2337d1ceceef">
+      <domainCredentialsMap class="hudson.util.CopyOnWriteMap$Hash"/>
+    </com.cloudbees.plugins.credentials.UserCredentialsProvider_-UserCredentialsProperty>
+    <jenkins.views.ViewsTabBarUserProperty/>
+    <hudson.plugins.emailext.watching.EmailExtWatchAction_-UserProperty plugin="email-ext@1925.v1598902b_58dd">
+      <triggers/>
+      <projectName></projectName>
+    </hudson.plugins.emailext.watching.EmailExtWatchAction_-UserProperty>
+    <hudson.model.MyViewsProperty>
+      <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
+      <views>
+        <hudson.model.AllView>
+          <owner class="hudson.model.MyViewsProperty" reference="../../.."/>
+          <name>all</name>
+          <filterExecutors>false</filterExecutors>
+          <filterQueue>false</filterQueue>
+          <properties class="hudson.model.View$PropertyList"/>
+        </hudson.model.AllView>
+      </views>
+    </hudson.model.MyViewsProperty>
+    <org.jenkinsci.plugins.displayurlapi.user.PreferredProviderUserProperty plugin="display-url-api@2.217.va_6b_de84cc74b_">
+      <providerId>default</providerId>
+    </org.jenkinsci.plugins.displayurlapi.user.PreferredProviderUserProperty>
+    <hudson.model.PaneStatusProperties>
+      <collapsed/>
+    </hudson.model.PaneStatusProperties>
+    <jenkins.security.seed.UserSeedProperty>
+      <seed>4a78d42a99874526</seed>
+    </jenkins.security.seed.UserSeedProperty>
+    <hudson.search.UserSearchProperty>
+      <insensitiveSearch>true</insensitiveSearch>
+    </hudson.search.UserSearchProperty>
+    <hudson.model.TimeZoneProperty/>
+    <jenkins.model.experimentalflags.UserExperimentalFlagsProperty>
+      <flags/>
+    </jenkins.model.experimentalflags.UserExperimentalFlagsProperty>
+    <hudson.security.HudsonPrivateSecurityRealm_-Details>
+      <passwordHash>#jbcrypt:$2a$10$JWEDjAYjM7VRnOnKyx/kOehk7OTuiePgMjTf4NXDuD2peb7UAIFEm</passwordHash>
+    </hudson.security.HudsonPrivateSecurityRealm_-Details>
+    <hudson.tasks.Mailer_-UserProperty plugin="mailer@522.va_995fa_cfb_8b_d">
+      <emailAddress>cruxal.1611@gmail.com</emailAddress>
+    </hudson.tasks.Mailer_-UserProperty>
+    <jenkins.security.ApiTokenProperty>
+      <tokenStore>
+        <tokenList/>
+      </tokenStore>
+    </jenkins.security.ApiTokenProperty>
+  </properties>
+</user>

@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.6.3
+Build-Jdk-Spec: 17
+Specification-Title: Jenkins Workspace Cleanup Plugin
+Specification-Version: 0.49
+Implementation-Title: Jenkins Workspace Cleanup Plugin
+Implementation-Version: 0.49
+Group-Id: org.jenkins-ci.plugins
+Artifact-Id: ws-cleanup
+Short-Name: ws-cleanup
+Long-Name: Jenkins Workspace Cleanup Plugin
+Url: https://github.com/jenkinsci/ws-cleanup-plugin
+Plugin-Version: 0.49
+Hudson-Version: 2.479.3
+Jenkins-Version: 2.479.3
+Plugin-Dependencies: matrix-project:849.v0cd64ed7e531,resource-disposer:
+ 0.25,structs:350.v3b_30f09f2363
+Plugin-Developers: Basil Crow:basil:,Oliver Gondža:olivergondza:
+Plugin-License-Name: The MIT License
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-ScmConnection: scm:git:https://github.com/jenkinsci/ws-cleanup-pl
+ ugin.git
+Plugin-ScmTag: ws-cleanup-0.49
+Plugin-ScmUrl: https://github.com/jenkinsci/ws-cleanup-plugin
+Implementation-Build: 0a6a0182f901a28c09d8a12233e8cd026c2fffa7
+

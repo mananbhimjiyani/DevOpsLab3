@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.6.0
+Build-Jdk-Spec: 17
+Specification-Title: Jenkins Apache HttpComponents Client 4.x API Plugin
+Specification-Version: 4.5
+Implementation-Title: Jenkins Apache HttpComponents Client 4.x API Plugi
+ n
+Implementation-Version: 4.5.14-269.vfa_2321039a_83
+Group-Id: org.jenkins-ci.plugins
+Artifact-Id: apache-httpcomponents-client-4-api
+Short-Name: apache-httpcomponents-client-4-api
+Long-Name: Jenkins Apache HttpComponents Client 4.x API Plugin
+Url: https://github.com/jenkinsci/apache-httpcomponents-client-4-api-plu
+ gin
+Plugin-Version: 4.5.14-269.vfa_2321039a_83
+Hudson-Version: 2.479.1
+Jenkins-Version: 2.479.1
+Plugin-Developers: 
+Support-Dynamic-Loading: true
+Plugin-License-Name: MIT License
+Plugin-License-Url: https://opensource.org/license/mit/
+Plugin-ScmConnection: scm:git:https://github.com/jenkinsci/apache-httpco
+ mponents-client-4-api-plugin
+Plugin-ScmTag: fa2321039a833d1a39a1ef4e60ca30588bae463c
+Plugin-ScmUrl: https://github.com/jenkinsci/apache-httpcomponents-client
+ -4-api-plugin
+Implementation-Build: fa2321039a833d1a39a1ef4e60ca30588bae463c
+

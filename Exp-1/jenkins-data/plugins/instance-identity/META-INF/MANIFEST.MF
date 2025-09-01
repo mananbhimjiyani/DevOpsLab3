@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.6.0
+Build-Jdk-Spec: 17
+Specification-Title: Instance Identity
+Specification-Version: 0.0
+Implementation-Title: Instance Identity
+Implementation-Version: 203.v15e81a_1b_7a_38
+Group-Id: org.jenkins-ci.modules
+Artifact-Id: instance-identity
+Short-Name: instance-identity
+Long-Name: Instance Identity
+Url: https://github.com/jenkinsci/instance-identity-plugin
+Plugin-Version: 203.v15e81a_1b_7a_38
+Hudson-Version: 2.479.3
+Jenkins-Version: 2.479.3
+Plugin-Dependencies: bouncycastle-api:2.30.1.80-256.vf98926042a_9b_
+Plugin-Developers: 
+Plugin-License-Name: MIT License
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-ScmConnection: scm:git:https://github.com/jenkinsci/instance-iden
+ tity-plugin.git
+Plugin-ScmTag: 15e81a1b7a387c092681197e0f247acf282311ae
+Plugin-ScmUrl: https://github.com/jenkinsci/instance-identity-plugin
+Implementation-Build: 15e81a1b7a387c092681197e0f247acf282311ae
+

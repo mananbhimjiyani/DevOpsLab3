@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.6.0
+Build-Jdk-Spec: 17
+Specification-Title: Pipeline: Milestone Step
+Specification-Version: 0.0
+Implementation-Title: Pipeline: Milestone Step
+Implementation-Version: 138.v78ca_76831a_43
+Group-Id: org.jenkins-ci.plugins
+Artifact-Id: pipeline-milestone-step
+Short-Name: pipeline-milestone-step
+Long-Name: Pipeline: Milestone Step
+Url: https://github.com/jenkinsci/pipeline-milestone-step-plugin
+Plugin-Version: 138.v78ca_76831a_43
+Hudson-Version: 2.479.1
+Jenkins-Version: 2.479.1
+Plugin-Dependencies: workflow-api:1363.v03f731255494,workflow-step-api:6
+ 86.v603d058a_e148
+Plugin-Developers: 
+Plugin-License-Name: MIT License
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-ScmConnection: scm:git:https://github.com/jenkinsci/pipeline-mile
+ stone-step-plugin.git
+Plugin-ScmTag: 78ca76831a435225432188a172c6bfeab08d205a
+Plugin-ScmUrl: https://github.com/jenkinsci/pipeline-milestone-step-plug
+ in
+Implementation-Build: 78ca76831a435225432188a172c6bfeab08d205a
+

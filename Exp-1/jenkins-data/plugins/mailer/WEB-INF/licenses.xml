@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<l:dependencies xmlns:l='licenses' groupId='org.jenkins-ci.plugins' artifactId='mailer' version='522.va_995fa_cfb_8b_d'><l:dependency name='Jenkins Mailer Plugin' groupId='org.jenkins-ci.plugins' artifactId='mailer' version='522.va_995fa_cfb_8b_d' url='https://github.com/jenkinsci/mailer-plugin'><l:description>The Jenkins Plugins Parent POM Project</l:description><l:license name='The MIT license' url='https://opensource.org/licenses/MIT'/></l:dependency></l:dependencies>

@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.6.0
+Build-Jdk-Spec: 17
+Specification-Title: Variant Plugin
+Specification-Version: 0.0
+Implementation-Title: Variant Plugin
+Implementation-Version: 70.va_d9f17f859e0
+Group-Id: org.jenkins-ci.plugins
+Artifact-Id: variant
+Short-Name: variant
+Long-Name: Variant Plugin
+Url: https://github.com/jenkinsci/variant-plugin
+Plugin-Version: 70.va_d9f17f859e0
+Hudson-Version: 2.479.1
+Jenkins-Version: 2.479.1
+Plugin-Developers: 
+Plugin-License-Name: MIT License
+Plugin-License-Url: http://opensource.org/licenses/MIT
+Plugin-ScmConnection: scm:git:https://github.com/jenkinsci/variant-plugi
+ n.git
+Plugin-ScmTag: ad9f17f859e045b79eb5989c0fbd0ff7648639ac
+Plugin-ScmUrl: http://github.com/jenkinsci/variant-plugin
+Implementation-Build: ad9f17f859e045b79eb5989c0fbd0ff7648639ac
+

@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.6.4
+Build-Jdk-Spec: 17
+Specification-Title: Plugin Utilities API Plugin
+Specification-Version: 0.0
+Implementation-Title: Plugin Utilities API Plugin
+Implementation-Version: 6.1167.v022176c7e0ca_
+Group-Id: io.jenkins.plugins
+Artifact-Id: plugin-util-api
+Short-Name: plugin-util-api
+Long-Name: Plugin Utilities API Plugin
+Url: https://github.com/jenkinsci/plugin-util-api-plugin
+Plugin-Version: 6.1167.v022176c7e0ca_
+Hudson-Version: 2.479.3
+Jenkins-Version: 2.479.3
+Plugin-Dependencies: commons-lang3-api:3.18.0-98.v3a_674c06072d,commons-
+ text-api:1.13.1-176.v74d88f22034b_,workflow-api:1373.v7b_813f10efa_b_,w
+ orkflow-step-api:704.ve4f0967e98fa_,workflow-support:968.v8f17397e87b_8
+Plugin-Developers: Ullrich Hafner:uhafner:ullrich.hafner@gmail.com
+Plugin-License-Name: MIT license
+Plugin-ScmConnection: scm:git:https://github.com/jenkinsci/plugin-util-a
+ pi-plugin.git
+Plugin-ScmTag: 022176c7e0ca3d69869d66ca271c728715ce11fb
+Plugin-ScmUrl: https://github.com/jenkinsci/plugin-util-api-plugin
+Implementation-Build: 022176c7e0ca3d69869d66ca271c728715ce11fb
+
