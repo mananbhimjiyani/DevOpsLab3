@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  angular-dev:
+    build:
+      context: .
+      target: build # Use the build stage from Dockerfile
+    command: npm run start
+    ports:
+      - "4200:4200"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
