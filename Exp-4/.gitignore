@@ -1,0 +1,15 @@
+# Ignore Jenkins agent workspace folders
+jenkins-agent1/
+jenkins-agent2/
+
+# Ignore Maven build output
+**/target/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE/project files (optional, add if using IntelliJ/Eclipse/VSCode)
+*.iml
+.idea/
+.vscode/

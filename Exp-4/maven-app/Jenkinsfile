@@ -1,0 +1,39 @@
+pipeline {
+    agent none
+
+    stages {
+        stage('Build on Agent 1') {
+            agent { label 'agent1' }
+            steps {
+                // Checkout your repo
+                checkout([$class: 'GitSCM', 
+                          branches: [[name: '*/main']], 
+                          userRemoteConfigs: [[url: 'https://github.com/onkar69483/DevOpsLab3.git']]])
+
+                echo "Building project on Agent 1"
+                
+                // Move to the Maven project folder
+                dir('Onkar135_devops_lab/DevOpsExp4/maven-app') {
+                    // Run Maven build on Windows
+                    bat 'mvn clean compile'
+                }
+            }
+        }
+
+        stage('Test on Agent 2') {
+            agent { label 'agent2' }
+            steps {
+                // Checkout your repo again on Agent 2
+                checkout([$class: 'GitSCM', 
+                          branches: [[name: '*/main']], 
+                          userRemoteConfigs: [[url: 'https://github.com/onkar69483/DevOpsLab3.git']]])
+
+                echo "Testing project on Agent 2"
+
+                dir('Onkar135_devops_lab/DevOpsExp4/maven-app') {
+                    bat 'mvn test'
+                }
+            }
+        }
+    }
+}
