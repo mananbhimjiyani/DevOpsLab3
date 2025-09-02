@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build Docker Image') {
+            steps {
+                sh 'docker build -t simple-app ./Onkar135_devops_lab/DevOpsExp1/simple-app'
+            }
+        }
+
+        stage('Run App Container') {
+            steps {
+                sh 'docker run --rm simple-app'
+            }
+        }
+    }
+}

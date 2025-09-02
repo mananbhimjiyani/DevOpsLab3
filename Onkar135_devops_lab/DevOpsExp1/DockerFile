@@ -1,24 +1,12 @@
-# Use an official Node.js runtime as a parent image.
-# Using a specific version like node:20-alpine is recommended for stability and smaller image size.
-FROM node:20-alpine
+FROM jenkins/jenkins:lts
 
-# Set the working directory inside the container.
-WORKDIR /app
+USER root
 
-# Copy package.json and package-lock.json to the working directory.
-# This allows Docker to cache the npm install step if only source code changes, not dependencies.
-COPY package*.json ./
+# Install Docker CLI
+RUN apt-get update && apt-get install -y docker.io
 
-# Install application dependencies.
-RUN npm install
+# Create docker group if it doesn't exist and add jenkins
+RUN groupadd -f docker \
+    && usermod -aG docker jenkins
 
-# Copy the rest of the application source code to the container.
-COPY . .
-
-# Expose the port your Node.js application listens on.
-# Replace 3000 with the actual port your application uses.
-EXPOSE 3000
-
-# Define the command to run the application when the container starts.
-# Replace 'app.js' with your application's entry point file.
-CMD ["node", "app.js"]
+USER jenkins

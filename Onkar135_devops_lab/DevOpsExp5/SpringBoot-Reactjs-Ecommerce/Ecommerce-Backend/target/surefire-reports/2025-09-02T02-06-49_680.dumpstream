@@ -1,0 +1,5 @@
+# Created at 2025-09-02T02:06:50.417
+Boot Manifest-JAR contains absolute paths in classpath 'D:\Assignments\DevOpsLab3\Onkar135_devops_lab\DevOpsExp5\SpringBoot-Reactjs-Ecommerce\Ecommerce-Backend\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+

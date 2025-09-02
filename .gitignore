@@ -1,0 +1,19 @@
+# Ignore Jenkins home directory
+jenkins_home/
+JENKINS_HOME/
+
+# Common system files
+*.log
+*.tmp
+
+# Python (if you’re using it)
+__pycache__/
+*.pyc
+
+# Node/React (if you’re using it)
+node_modules/
+
+# Docker
+*.env
+*.pid
+*.sock
