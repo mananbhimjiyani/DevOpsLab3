@@ -1,0 +1,29 @@
+pipeline {
+    agent none  // master won’t run builds
+    stages {
+        stage('Build & Test') {
+            parallel {
+                stage('Slave1 Build') {
+                    agent { label 'slave1' } // Jenkins label for first agent
+                    steps {
+                        sh './mvnw clean package' // assumes Maven Wrapper in Spring Boot project
+                        sh './mvnw test'
+                    }
+                }
+                stage('Slave2 Build') {
+                    agent { label 'slave2' } // Jenkins label for second agent
+                    steps {
+                        sh './mvnw clean package'
+                        sh './mvnw test'
+                    }
+                }
+            }
+        }
+    }
+    post {
+        always {
+            junit '**/target/surefire-reports/*.xml' // Collect test reports
+            archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+        }
+    }
+}
