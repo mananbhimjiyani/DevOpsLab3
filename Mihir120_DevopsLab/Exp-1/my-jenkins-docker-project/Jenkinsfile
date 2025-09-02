@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+    stages {
+        stage('Clone Code') {
+            steps {
+                git branch: 'mihir', git 'https://github.com/mihirhebalkar/DevOpsLab3.git'
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    docker.build("lab1-app:latest", "DevOpsLab3/Exp-1/my-jenkins-docker-project")
+                }
+            }
+        }
+        stage('Run Tests') {
+            steps {
+                echo 'Running demo tests... (none defined)'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'docker run -d -p 4000:3000 lab1-app:latest'
+                echo 'App deployed at http://localhost:4000'
+            }
+        }
+    }
+}
