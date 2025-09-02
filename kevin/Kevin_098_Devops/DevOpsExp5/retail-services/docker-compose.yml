@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  # --- The Product Service Definition ---
+  product-service:
+    # Tells Docker Compose to build the image from the 'product-service' folder
+    build: ./product-service
+    # Assign a name to the built image
+    image: my-retail-app/product-service
+    ports:
+      # Map port 8081 on your computer to port 8080 inside the container
+      - "8081:8080"
+    environment:
+      - SERVER_PORT=8080
+
+  # --- The Inventory Service Definition ---
+  inventory-service:
+    build: ./inventory-service
+    image: my-retail-app/inventory-service
+    ports:
+      # Map port 8082 on your computer to port 8080 inside the container
+      - "8082:8080"
+    environment:
+      - SERVER_PORT=8080
