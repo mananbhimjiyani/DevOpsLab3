@@ -2,8 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: inventory-frontend
-  labels:
-    app: inventory-frontend
 spec:
   replicas: 2
   selector:
@@ -17,12 +15,6 @@ spec:
       containers:
       - name: inventory-frontend
         image: inventory-frontend:latest
+        imagePullPolicy: Never   # 👈 THIS is the important line
         ports:
         - containerPort: 80
-        resources:
-          limits:
-            memory: "256Mi"
-            cpu: "500m"
-          requests:
-            memory: "128Mi"
-            cpu: "250m"
