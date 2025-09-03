@@ -1,4 +1,4 @@
-[09/01/25 21:51:17] Launching agent
+[09/02/25 09:57:02] Launching agent
 $ docker exec jenkins-slave1 java -jar /agent.jar
 ERROR: Unable to launch the agent for slave1
 java.io.IOException: error=2, No such file or directory

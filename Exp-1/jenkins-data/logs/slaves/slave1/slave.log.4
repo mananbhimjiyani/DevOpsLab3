@@ -1,2 +1,18 @@
-[09/01/25 21:41:16] Launching agent
-ERROR: script not yet approved for use
+[09/02/25 09:09:02] Launching agent
+$ docker exec jenkins-slave1 java -jar /agent.jar
+ERROR: Unable to launch the agent for slave1
+java.io.IOException: error=2, No such file or directory
+	at java.base/java.lang.ProcessImpl.forkAndExec(Native Method)
+	at java.base/java.lang.ProcessImpl.<init>(Unknown Source)
+	at java.base/java.lang.ProcessImpl.start(Unknown Source)
+Caused: java.io.IOException: Cannot run program "docker": error=2, No such file or directory
+	at java.base/java.lang.ProcessBuilder.start(Unknown Source)
+	at java.base/java.lang.ProcessBuilder.start(Unknown Source)
+	at PluginClassLoader for command-launcher//hudson.slaves.CommandLauncher.launch(CommandLauncher.java:181)
+	at hudson.slaves.SlaveComputer.lambda$_connect$0(SlaveComputer.java:297)
+	at jenkins.util.ContextResettingExecutorService$2.call(ContextResettingExecutorService.java:46)
+	at jenkins.security.ImpersonatingExecutorService$2.call(ImpersonatingExecutorService.java:80)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
