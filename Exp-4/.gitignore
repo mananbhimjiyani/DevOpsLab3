@@ -1,6 +1,6 @@
 # Ignore Jenkins agent workspace folders
-jenkins-agent1/
-jenkins-agent2/
+builder/
+tester/
 
 # Ignore Maven build output
 **/target/
