@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mini-social-service
+spec:
+  selector:
+    app: mini-social-app
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 5000         # inside cluster
+      targetPort: 5000   # container port
+      nodePort: 32310    # external port to access via minikube IP

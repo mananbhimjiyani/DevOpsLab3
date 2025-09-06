@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mini Social Media</title>
+</head>
+<body>
+    <h1>📱 Mini Social Media Feed</h1>
+    <form action="/add" method="post">
+        <input type="text" name="content" placeholder="What's on your mind?" required>
+        <button type="submit">Post</button>
+    </form>
+    <h2>Posts</h2>
+    <ul>
+        {% for post in posts %}
+        <li>{{ post }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
