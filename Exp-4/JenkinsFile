@@ -1,0 +1,23 @@
+pipeline {
+    agent none
+    stages {
+        stage('Build') {
+            agent { label 'agent1' }
+            steps {
+                git branch: 'mihir', url: 'https://github.com/mihirhebalkar/DevOpsLab3.git'
+                dir('Mihir120_DevopsLab/Exp-4') {
+                    sh 'mvn clean compile'
+                }
+            }
+        }
+        stage('Test') {
+            agent { label 'agent2' }
+            steps {
+                git branch: 'mihir', url: 'https://github.com/mihirhebalkar/DevOpsLab3.git'
+                dir('Mihir120_DevopsLab/Exp-4') {
+                    sh 'mvn test'
+                }
+            }
+        }
+    }
+}
