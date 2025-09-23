@@ -20,22 +20,22 @@ public class productController {
 	@Autowired
 	productService service;
 
-	@GetMapping("/products")
+	@GetMapping("/product")
 	public List<productEntity> getproducts(){
 		return service.getProducts();
 	}
 	
-	@PostMapping("/products")
+	@PostMapping("/product")
 	public String addProduct(@RequestBody productEntity product) {
 		return service.addProduct(product);
 	}
 	
-	@PutMapping("/products/{id}")
+	@PutMapping("/product/{id}")
 	public String editProduct(@PathVariable int id,@RequestBody productEntity product) {
 		return service.editProduct(id,product);
 	}
 	
-	@DeleteMapping("/products/{id}")
+	@DeleteMapping("/product/{id}")
 	public String deleteProduct(@PathVariable int id) {
 		return service.deleteProduct(id);
 	}
