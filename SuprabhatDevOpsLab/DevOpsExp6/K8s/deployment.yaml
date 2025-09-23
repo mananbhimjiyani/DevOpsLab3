@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mini-social-app
+  labels:
+    app: mini-social-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mini-social-app
+  template:
+    metadata:
+      labels:
+        app: mini-social-app
+    spec:
+      containers:
+      - name: mini-social-app
+        image: mini-social-app:latest
+        imagePullPolicy: Never   # use local image
+        ports:
+        - containerPort: 5000
+        resources:
+          requests:
+            cpu: 100m
+            memory: 200Mi
+        readinessProbe:          # optional but good for stability
+          httpGet:
+            path: /
+            port: 5000
+          initialDelaySeconds: 5
+          periodSeconds: 10
