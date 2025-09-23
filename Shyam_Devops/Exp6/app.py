@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     return jsonify({
-        "message": "Welcome to Social Media App!",
+        "message": "Welcome to my Social Media App!",
         "server": os.environ.get('HOSTNAME', 'unknown'),
         "status": "running"
     })
