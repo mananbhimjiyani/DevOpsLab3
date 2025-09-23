@@ -1,0 +1,14 @@
+services:
+  backend:
+    build: ./H2DBProject1
+    container_name: springboot-backend
+    ports:
+      - "9090:9090"
+
+  frontend:
+    build: ./frontend
+    container_name: react-frontend
+    ports:
+      - "5173:80"   # Local 5173 → Container Nginx 80
+    depends_on:
+      - backend
