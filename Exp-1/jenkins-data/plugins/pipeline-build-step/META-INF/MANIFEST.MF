@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.6.0
+Build-Jdk-Spec: 17
+Specification-Title: Pipeline: Build Step
+Specification-Version: 0.0
+Implementation-Title: Pipeline: Build Step
+Implementation-Version: 571.v08a_fffd4b_0ce
+Group-Id: org.jenkins-ci.plugins
+Artifact-Id: pipeline-build-step
+Short-Name: pipeline-build-step
+Long-Name: Pipeline: Build Step
+Url: https://github.com/jenkinsci/pipeline-build-step-plugin
+Plugin-Version: 571.v08a_fffd4b_0ce
+Hudson-Version: 2.479.1
+Jenkins-Version: 2.479.1
+Plugin-Dependencies: workflow-api:1363.v03f731255494,workflow-step-api:6
+ 86.v603d058a_e148,workflow-support:944.v5a_859593b_98a_,script-security
+ :1369.v9b_98a_4e95b_2d,structs:338.v848422169819
+Plugin-Developers: 
+Plugin-License-Name: MIT License
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-ScmConnection: scm:git:https://github.com/jenkinsci/pipeline-buil
+ d-step-plugin.git
+Plugin-ScmTag: 08afffd4b0ce6a0182fa5388dd842eae0c7e67e5
+Plugin-ScmUrl: https://github.com/jenkinsci/pipeline-build-step-plugin
+Implementation-Build: 08afffd4b0ce6a0182fa5388dd842eae0c7e67e5
+

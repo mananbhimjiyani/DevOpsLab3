@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.6.3
+Build-Jdk-Spec: 17
+Specification-Title: Pipeline: Stage Tags Metadata
+Specification-Version: 0.0
+Implementation-Title: Pipeline: Stage Tags Metadata
+Implementation-Version: 2.2265.v140e610fe9d5
+Group-Id: org.jenkinsci.plugins
+Artifact-Id: pipeline-stage-tags-metadata
+Short-Name: pipeline-stage-tags-metadata
+Long-Name: Pipeline: Stage Tags Metadata
+Url: https://github.com/jenkinsci/pipeline-model-definition-plugin
+Plugin-Version: 2.2265.v140e610fe9d5
+Hudson-Version: 2.479.3
+Jenkins-Version: 2.479.3
+Plugin-Dependencies: workflow-api:1373.v7b_813f10efa_b_
+Plugin-Developers: Andrew Bayer:abayer:
+Plugin-License-Name: MIT
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-ScmConnection: scm:git:https://github.com/jenkinsci/pipeline-mode
+ l-definition-plugin.git
+Plugin-ScmTag: 140e610fe9d5290e5efbb75c6da39cfb18ac7c7d
+Plugin-ScmUrl: https://github.com/jenkinsci/pipeline-model-definition-pl
+ ugin
+Implementation-Build: 140e610fe9d5290e5efbb75c6da39cfb18ac7c7d
+

@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.6.3
+Build-Jdk-Spec: 17
+Specification-Title: Gradle Plugin
+Specification-Version: 2.16
+Implementation-Title: Gradle Plugin
+Implementation-Version: 2.16.1149.v711b_998b_0532
+Group-Id: org.jenkins-ci.plugins
+Artifact-Id: gradle
+Short-Name: gradle
+Long-Name: Gradle Plugin
+Url: https://github.com/jenkinsci/gradle-plugin
+Plugin-Version: 2.16.1149.v711b_998b_0532
+Hudson-Version: 2.479.3
+Jenkins-Version: 2.479.3
+Plugin-Dependencies: commons-lang3-api:3.18.0-98.v3a_674c06072d,okhttp-a
+ pi:4.11.0-189.v976fa_d3379d6,maven-plugin:3.26;resolution:=optional,wor
+ kflow-api:1373.v7b_813f10efa_b_,workflow-job:1540.v295eccc9778f,workflo
+ w-step-api:704.ve4f0967e98fa_,apache-httpcomponents-client-4-api:4.5.14
+ -269.vfa_2321039a_83,credentials:1415.v831096eb_5534,git:5.7.0;resoluti
+ on:=optional,jackson2-api:2.18.3-402.v74c4eb_f122b_2,plain-credentials:
+ 199.v9f8e1f741799,structs:350.v3b_30f09f2363
+Plugin-Developers: The Gradle team::
+Plugin-License-Name: MIT License
+Plugin-License-Url: https://opensource.org/license/mit/
+Plugin-ScmConnection: scm:git:https://github.com/jenkinsci/gradle-plugin
+Plugin-ScmTag: 711b998b05320166158da94dfd2bf17c7221dfd4
+Plugin-ScmUrl: https://github.com/jenkinsci/gradle-plugin
+Implementation-Build: 711b998b05320166158da94dfd2bf17c7221dfd4
+

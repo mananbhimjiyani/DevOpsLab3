@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.6.0
+Build-Jdk-Spec: 17
+Specification-Title: OWASP Markup Formatter Plugin
+Specification-Version: 0.0
+Implementation-Title: OWASP Markup Formatter Plugin
+Implementation-Version: 173.v680e3a_b_69ff3
+Group-Id: org.jenkins-ci.plugins
+Artifact-Id: antisamy-markup-formatter
+Short-Name: antisamy-markup-formatter
+Long-Name: OWASP Markup Formatter Plugin
+Url: https://github.com/jenkinsci/antisamy-markup-formatter-plugin
+Compatible-Since-Version: 2.0
+Plugin-Version: 173.v680e3a_b_69ff3
+Hudson-Version: 2.479.1
+Jenkins-Version: 2.479.1
+Plugin-Developers: 
+Plugin-License-Name: MIT
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-ScmConnection: scm:git:https://github.com/jenkinsci/antisamy-mark
+ up-formatter-plugin.git
+Plugin-ScmTag: 680e3ab69ff3d7069b328fb6322a906a509f9a53
+Plugin-ScmUrl: https://github.com/jenkinsci/antisamy-markup-formatter-pl
+ ugin
+Implementation-Build: 680e3ab69ff3d7069b328fb6322a906a509f9a53
+

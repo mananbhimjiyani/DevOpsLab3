@@ -1,0 +1,31 @@
+here is the jenkins script written:
+pipeline {
+    agent any
+    environment {
+        YOUR_NAME = 'Dhairya A Mehra'
+    }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'echo Building the app for ${YOUR_NAME} at $(date)'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'echo Running tests for ${YOUR_NAME} at $(date)'
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                sh 'echo Building Docker image my-app:latest for ${YOUR_NAME} at $(date)...'
+                // Dummy step to simulate docker build (no actual build)
+                sh 'echo Simulated docker build -t my-app:latest .'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'echo Deploying app for ${YOUR_NAME} at $(date)'
+            }
+        }
+    }
+}

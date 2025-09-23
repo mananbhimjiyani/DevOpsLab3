@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.6.4
+Build-Jdk-Spec: 17
+Specification-Title: Metrics Plugin
+Specification-Version: 4.2
+Implementation-Title: Metrics Plugin
+Implementation-Version: 4.2.33-484.v2fcd689980d1
+Plugin-Class: jenkins.metrics.api.Metrics
+Group-Id: org.jenkins-ci.plugins
+Artifact-Id: metrics
+Short-Name: metrics
+Long-Name: Metrics Plugin
+Url: https://github.com/jenkinsci/metrics-plugin
+Plugin-Version: 4.2.33-484.v2fcd689980d1
+Hudson-Version: 2.504.1
+Jenkins-Version: 2.504.1
+Plugin-Dependencies: commons-lang3-api:3.18.0-98.v3a_674c06072d,ionicons
+ -api:94.vcc3065403257,jackson2-api:2.19.2-408.v18248a_324cfe,variant:70
+ .va_d9f17f859e0
+Plugin-Developers: Stephen Connolly:stephenconnolly:
+Plugin-License-Name: The MIT license
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-ScmConnection: scm:git:https://github.com/jenkinsci/metrics-plugi
+ n.git
+Plugin-ScmTag: 2fcd689980d10f3fb924ce9094b6b722a3f87533
+Plugin-ScmUrl: https://github.com/jenkinsci/metrics-plugin
+Implementation-Build: 2fcd689980d10f3fb924ce9094b6b722a3f87533
+

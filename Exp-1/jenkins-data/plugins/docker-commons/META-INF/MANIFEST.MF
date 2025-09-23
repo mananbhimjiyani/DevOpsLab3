@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.6.0
+Build-Jdk-Spec: 17
+Specification-Title: Docker Commons Plugin
+Specification-Version: 0.0
+Implementation-Title: Docker Commons Plugin
+Implementation-Version: 457.v0f62a_94f11a_3
+Plugin-Class: org.jenkinsci.plugins.docker.commons.DockerCommonsPlugin
+Group-Id: org.jenkins-ci.plugins
+Artifact-Id: docker-commons
+Short-Name: docker-commons
+Long-Name: Docker Commons Plugin
+Url: https://github.com/jenkinsci/docker-commons-plugin
+Plugin-Version: 457.v0f62a_94f11a_3
+Hudson-Version: 2.479.1
+Jenkins-Version: 2.479.1
+Plugin-Dependencies: authentication-tokens:1.119.v50285141b_7e1,credenti
+ als-binding:687.v619cb_15e923f,credentials:1405.vb_cda_74a_f8974,struct
+ s:338.v848422169819,pipeline-model-extensions:2.2218.v56d0cda_37c72;res
+ olution:=optional
+Plugin-Developers: 
+Plugin-License-Name: MIT License
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-ScmConnection: scm:git:https://github.com/jenkinsci/docker-common
+ s-plugin
+Plugin-ScmTag: 0f62a94f11a3ba675f0fcf96369c4b532891d5e8
+Plugin-ScmUrl: https://github.com/jenkinsci/docker-commons-plugin
+Implementation-Build: 0f62a94f11a3ba675f0fcf96369c4b532891d5e8
+

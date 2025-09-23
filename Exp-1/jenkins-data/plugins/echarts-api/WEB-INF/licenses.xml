@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<l:dependencies xmlns:l='licenses' groupId='io.jenkins.plugins' artifactId='echarts-api' version='6.0.0-1146.v5c8f3b_8f0573'><l:dependency name='ECharts API Plugin' groupId='io.jenkins.plugins' artifactId='echarts-api' version='6.0.0-1146.v5c8f3b_8f0573' url='https://github.com/jenkinsci/echarts-api-plugin'><l:description>Provides ECharts for Jenkins plugins.</l:description><l:license name='MIT license' url=''/></l:dependency></l:dependencies>

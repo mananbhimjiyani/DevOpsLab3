@@ -1,0 +1,2 @@
+import{r as e,j as n}from"./PipelineGraphModel-Jh7QshDZ.js";const r=e.createContext({canConfigure:!1}),u=({children:t})=>{const s=document.querySelector("[data-module='permissions']"),o={canConfigure:((s==null?void 0:s.dataset)??{}).permissionConfigure==="true"};return n.jsx(r,{value:o,children:t})},c=()=>e.useContext(r);export{u as U,c as u};
+//# sourceMappingURL=user-permission-provider-BchAiSSp.js.map

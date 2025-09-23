@@ -1,0 +1,50 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@1540.v295eccc9778f">
+  <actions>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@2.2265.v140e610fe9d5"/>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@2.2265.v140e610fe9d5">
+      <jobProperties/>
+      <triggers/>
+      <parameters/>
+      <options/>
+    </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
+  </actions>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@4183.v94b_6fd39da_c1">
+    <script>pipeline {
+    agent any
+    environment {
+        YOUR_NAME = &apos;Dhairya A Mehra&apos;
+    }
+    stages {
+        stage(&apos;Build&apos;) {
+            steps {
+                sh &apos;echo Building the app for ${YOUR_NAME} at $(date)&apos;
+            }
+        }
+        stage(&apos;Test&apos;) {
+            steps {
+                sh &apos;echo Running tests for ${YOUR_NAME} at $(date)&apos;
+            }
+        }
+        stage(&apos;Build Docker Image&apos;) {
+            steps {
+                sh &apos;echo Building Docker image my-app:latest for ${YOUR_NAME} at $(date)...&apos;
+                // Dummy step to simulate docker build (no actual build)
+                sh &apos;echo Simulated docker build -t my-app:latest .&apos;
+            }
+        }
+        stage(&apos;Deploy&apos;) {
+            steps {
+                sh &apos;echo Deploying app for ${YOUR_NAME} at $(date)&apos;
+            }
+        }
+    }
+}</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>
