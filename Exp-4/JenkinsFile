@@ -1,0 +1,41 @@
+pipeline {
+    agent none
+    stages {
+        stage('Build') {
+            agent { label 'builder' }
+            steps {
+                echo '🔨 Starting Build on Builder Agent...'
+                dir('C:/Users/jay11/OneDrive/Desktop/7th sem/DevOps/DevOps Lab/DevOpsLab3/Exp-4/maven-app/demo-app') {
+                    bat 'mvnd clean install'
+                }
+                echo '✅ Build Completed Successfully!'
+            }
+        }
+        stage('Test') {
+            agent { label 'tester' }
+            steps {
+                echo '🧪 Running Tests on Tester Agent...'
+                dir('C:/Users/jay11/OneDrive/Desktop/7th sem/DevOps/DevOps Lab/DevOpsLab3/Exp-4/maven-app/demo-app') {
+                    bat 'mvnd test'
+                }
+                echo '📊 Tests Completed. Check Results Above.'
+            }
+        }
+        stage('Run App') {
+            agent { label 'tester' }   // you can run on tester or builder
+            steps {
+                echo '🚀 Running the Application to print output...'
+                dir('C:/Users/jay11/OneDrive/Desktop/7th sem/DevOps/DevOps Lab/DevOpsLab3/Exp-4/maven-app/demo-app') {
+                    // Run the Java class directly
+                    bat 'java -cp target/classes com.example.App'
+                }
+                echo '✅ Application executed successfully!'
+            }
+        }
+    }
+    post {
+        always {
+            echo '🏁 Pipeline Finished (Build + Test + Run stages).'
+        }
+    }
+}
