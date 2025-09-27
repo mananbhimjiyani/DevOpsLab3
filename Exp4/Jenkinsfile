@@ -1,29 +1,60 @@
 pipeline {
-    agent none  // master won’t run builds
+    // 'agent none' at the top level allows each stage to define its own agent.
+    agent none
+
     stages {
+        // Stage 1: Compile the project on the 'compile-node'
+        stage('Compile') {
+            agent { label 'compile-node' }
+            steps {
+                echo "Running compile stage on node: ${env.NODE_NAME}"
+                git 'https://github.com/mananbhimjiyani/DevopsLab3/Exp4/retail-app.git'
+                sh './mvnw clean compile'
+                stash includes: 'target/', name: 'compiled-artifacts'
+                stash includes: 'pom.xml', name: 'maven-pom'
+            }
+        }
+
+        // Stage 2: Parallel build & test on multiple nodes
         stage('Build & Test') {
             parallel {
-                stage('Slave1 Build') {
-                    agent { label 'slave1' } // Jenkins label for first agent
+                stage('Slave1 Build & Test') {
+                    agent { label 'slave1' }
                     steps {
-                        sh './mvnw clean package' // assumes Maven Wrapper in Spring Boot project
+                        unstash 'maven-pom'
+                        unstash 'compiled-artifacts'
+                        sh './mvnw clean package'
                         sh './mvnw test'
                     }
                 }
-                stage('Slave2 Build') {
-                    agent { label 'slave2' } // Jenkins label for second agent
+                stage('Slave2 Build & Test') {
+                    agent { label 'slave2' }
                     steps {
+                        unstash 'maven-pom'
+                        unstash 'compiled-artifacts'
                         sh './mvnw clean package'
                         sh './mvnw test'
+                    }
+                }
+                stage('Test on test-node') {
+                    agent { label 'test-node' }
+                    steps {
+                        echo "Running additional tests on ${env.NODE_NAME}"
+                        unstash 'maven-pom'
+                        unstash 'compiled-artifacts'
+                        sh 'mvn test'
                     }
                 }
             }
         }
     }
+
     post {
         always {
-            junit '**/target/surefire-reports/*.xml' // Collect test reports
+            junit '**/target/surefire-reports/*.xml'
             archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+            echo "Pipeline finished. Cleaning up workspace."
+            cleanWs()
         }
     }
 }
