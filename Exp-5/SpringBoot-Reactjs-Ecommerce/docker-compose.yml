@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  backend:
+    image: ecommerce-backend:1.0
+    container_name: ecommerce-backend
+    ports:
+      - "8080:8080"
+
+  frontend:
+    image: ecommerce-frontend:1.0
+    container_name: ecommerce-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
