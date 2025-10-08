@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  GLOBAL_MESSAGE: "DevOps lab demo"
+  BACKEND_BASE_PATH: "/"
