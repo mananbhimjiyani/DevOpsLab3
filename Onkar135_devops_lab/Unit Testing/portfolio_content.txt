@@ -1,0 +1,93 @@
+FULL STACK DEVELOPER & ROBOTICS CLUB PRESIDENT
+Building Intelligent Solutions through Code and Innovation
+I'm Onkar Mendhapurkar, a Computer Science student at Symbiosis Institute of Technology. Passionate about creating innovative solutions through code and robotics. Currently leading Rotonity, SIT's Robotics & Automation Club.
+5+
+Workshops Conducted
+200+
+STEM Students Taught
+10+
+Projects Completed
+Explore My Projects
+I am currently pursuing my B.Tech in Computer Science Engineering at SIT Pune.
+Coding a better world.
+Turning ideas into
+Code and Circuit
+Java
+Reactjs
+NextJS
+MongoDB
+DIY projects and electronics enthusiast
+CodeDrop
+Currently Building a platform for secure code snippet sharing
+Do you want to start a project together?
+Copy my email address
+Technologies That I Know 👨🏻‍💻
+🖥️ Programming & Web Development
+🗄️ Databases & Development Tools
+🔧 Operating Systems & Other Tools
+A small selection of recent projects
+CodeDrop - Easily Share Code Snippets
+CodeDrop allows you to paste and share code snippets with ease, featuring expiration times, syntax highlighting, and a user-friendly interface for quick collaborations.
+Check Live Site
+Medisync - Expert Healthcare At Your Fingertips
+Connect with top-rated doctors for personalized care. Schedule appointments seamlessly and take control of your health journey.
+Check Live Site
+MedXtract - Medical Prescription Diagnosis App
+MedXtract uses cutting-edge AI to accurately process medical forms, saving time and reducing errors. Join the digital healthcare revolution today!
+Check Live Site
+EzFinance - Personal Finance Management System
+The Personal Finance Management System is an application developed using Java Swing on Apache NetBeans IDE and MySQL for Database Management. This system enables users to monitor their financial habits, track previous transactions, and visualize monthly financial data using charts.
+Check Live Site
+My Academic Journey
+Secondary Education
+Grade: 89.33%
+Pune, India
+Hume McHenry School
+2009 – 2020
+B.Tech Computer Science
+GPA: 8.4
+Pune, India
+Symbiosis Institute of Technology
+2022 - 2026
+Pre-University Education
+Grade: 80%
+Pune, India
+Arham Junior College
+2020 – 2022
+Secondary Education
+Grade: 89.33%
+Pune, India
+Hume McHenry School
+2009 – 2020
+My work experience
+Mobile Application Developer
+Ab Normal Home
+June 2024 – Present
+Volunteer
+Guided 15+ children with academic activities and developed a React Native app with features like chat, notice board, event calendar, and OTP login.
+Full Stack Developer Intern
+Meta Craftlab Private Limited
+June 2024 – July 2024
+Top-ranked Intern
+Engineered an online poll tool using SvelteKit and MongoDB, with automated poll deletion. Crafted 5+ APIs for creating polls, managing responses, and fetching results.
+Full Stack Developer
+Interactive Learning
+Sep 2024 – Oct 2024 · 2 mos
+Intern
+Implemented user-friendly, responsive interfaces using React.js, ensuring accessibility and usability. Managed server-side logic with Node.js, focusing on scalability, security, and performance. Collaborated with cross-functional teams to develop features, resolve bugs, and ensure seamless system integration.
+President
+Rotonity (Robotics & Automation Club - SIT)
+May 2023 – Present
+Club Activity
+Led robotics projects, workshops, and competitions to enhance technical skills and community engagement. Developed an obstacle-avoiding robot kit for a STEM workshop, reaching 200+ students. Designed and implemented mechanisms such as pill dispensing and pan-tilt systems for the Scobo Medical Robot, advancing robotics education within the club.
+Take a look at my resume
+Download
+Open in New Tab
+My approach
+Phase 1
+Phase 2
+Phase 3
+Ready to elevate your projects with innovative solutions?
+Let’s collaborate to bring cutting-edge technology to your vision. Feel free to reach out!
+Let's connect
+© 2024 Onkar Mendhapurkar
