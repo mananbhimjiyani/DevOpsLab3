@@ -27,7 +27,6 @@ spec:
           value: http://product-service:8083
         - name: ORDER_SERVICE_URL
           value: http://order-service:8084
-
 ---
 apiVersion: v1
 kind: Service
@@ -68,7 +67,6 @@ spec:
             name: user-config
         - secretRef:
             name: app-secrets
-
 ---
 apiVersion: v1
 kind: Service
@@ -108,7 +106,6 @@ spec:
             name: auth-config
         - secretRef:
             name: app-secrets
-
 ---
 apiVersion: v1
 kind: Service
@@ -148,7 +145,6 @@ spec:
             name: product-config
         - secretRef:
             name: app-secrets
-
 ---
 apiVersion: v1
 kind: Service
@@ -189,6 +185,8 @@ spec:
         - secretRef:
             name: app-secrets
         env:
+        - name: DATABASE_URL
+          value: postgres://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@postgres:5432/postgres
         - name: POSTGRES_USER
           valueFrom:
             secretKeyRef:
@@ -203,7 +201,6 @@ spec:
           value: postgres
         - name: POSTGRES_DB
           value: postgres
-
 ---
 apiVersion: v1
 kind: Service
@@ -216,214 +213,3 @@ spec:
   ports:
   - port: 8084
     targetPort: 8084
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  apiVersion: apps/v1
-
-kind: Deployment
-metadata:
-  name: api-gateway
-  namespace: exp8
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: api-gateway
-  template:
-    metadata:
-      labels:
-        app: api-gateway
-    spec:
-      containers:
-      - name: api-gateway
-        image: ghcr.io/yourorg/api-gateway:latest
-        ports:
-        - containerPort: 80
-        env:
-        - name: USER_SERVICE_URL
-          value: http://user-service:8081
-        - name: AUTH_SERVICE_URL
-          value: http://auth-service:8082
-        - name: PRODUCT_SERVICE_URL
-          value: http://product-service:8083
-        - name: ORDER_SERVICE_URL
-          value: http://order-service:8084
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: api-gateway
-  namespace: exp8
-spec:
-  selector:
-    app: api-gateway
-  ports:
-  - port: 80
-    targetPort: 80
-  type: LoadBalancer
-
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: user-service
-  namespace: exp8
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: user-service
-  template:
-    metadata:
-      labels:
-        app: user-service
-    spec:
-      containers:
-      - name: user-service
-        image: ghcr.io/yourorg/user-service:latest
-        ports:
-        - containerPort: 8081
-        envFrom:
-        - configMapRef:
-            name: user-config
-        - secretRef:
-            name: app-secrets
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: user-service
-  namespace: exp8
-spec:
-  selector:
-    app: user-service
-  ports:
-  - port: 8081
-    targetPort: 8081
-
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: auth-service
-  namespace: exp8
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: auth-service
-  template:
-    metadata:
-      labels:
-        app: auth-service
-    spec:
-      containers:
-      - name: auth-service
-        image: ghcr.io/yourorg/auth-service:latest
-        ports:
-        - containerPort: 8082
-        envFrom:
-        - configMapRef:
-            name: auth-config
-        - secretRef:
-            name: app-secrets
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: auth-service
-  namespace: exp8
-spec:
-  selector:
-    app: auth-service
-  ports:
-  - port: 8082
-    targetPort: 8082
-
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: product-service
-  namespace: exp8
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: product-service
-  template:
-    metadata:
-      labels:
-        app: product-service
-    spec:
-      containers:
-      - name: product-service
-        image: ghcr.io/yourorg/product-service:latest
-        ports:
-        - containerPort: 8083
-        envFrom:
-        - configMapRef:
-            name: product-config
-        - secretRef:
-            name: app-secrets
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: product-service
-  namespace: exp8
-spec:
-  selector:
-    app: product-service
-  ports:
-  - port: 8083
-    targetPort: 8083
-
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: order-service
-  namespace: exp8
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: order-service
-  template:
-    metadata:
-      labels:
-        app: order-service
-    spec:
-      containers:
-      - name: order-service
-        image: ghcr.io/yourorg/order-service:latest
-        ports:
-        - containerPort: 8084
-        envFrom:
-        - configMapRef:
-            name: order-config
-          - secretRef:
-              name: app-secrets
-        env:
-        - name: DATABASE_URL
-          value: postgres://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@postgres:5432/postgres
-          - name: POSTGRES_USER
-            valueFrom:
-              secretKeyRef:
-                name: postgres-secret
-                key: POSTGRES_USER
-          - name: POSTGRES_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: postgres-secret
-                key: POSTGRES_PASSWORD
-          - name: POSTGRES_HOST
-            value: postgres
-          - name: POSTGRES_DB
-            value: postgres
