@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payment
+  template:
+    metadata:
+      labels:
+        app: payment
+    spec:
+      containers:
+      - name: payment
+        image: payment-service:latest
+        ports:
+        - containerPort: 3003
+        env:
+        - name: PAYMENT_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: app-secret
+              key: PAYMENT_API_KEY  # Injects secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment-service
+spec:
+  selector:
+    app: payment
+  ports:
+  - port: 3003
+    targetPort: 3003
+  type: ClusterIP
