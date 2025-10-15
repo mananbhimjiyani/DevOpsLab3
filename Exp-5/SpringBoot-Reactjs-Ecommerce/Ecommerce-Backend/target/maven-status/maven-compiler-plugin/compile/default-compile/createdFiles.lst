@@ -1,0 +1,7 @@
+com\cart\ecom_proj\controller\ProductController.class
+com\cart\ecom_proj\model\Product.class
+com\cart\ecom_proj\EcomProjApplication.class
+com\cart\ecom_proj\repo\ProductRepo.class
+com\cart\ecom_proj\service\ProductService.class
+com\cart\ecom_proj\CorsConfig.class
+com\cart\ecom_proj\CorsConfig$1.class
