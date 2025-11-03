@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: social-media-deployment
+  labels:
+    app: social-media
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: social-media
+  template:
+    metadata:
+      labels:
+        app: social-media
+    spec:
+      containers:
+        - name: fastapi-container
+          image: abhi25022004/social-media:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          resources:
+            limits:
+              cpu: "250m"
+              memory: "200Mi"
+            requests:
+              cpu: "100m"
+              memory: "100Mi"
